@@ -14,7 +14,7 @@ namespace SnakeLadderGame
             Console.WriteLine("Let's Play\n");
             Console.WriteLine("Currently you are at 0 Position\n");
 
-            int totalBoardNumber = 100, diceNumber, currentBoardPosition = 0, countDiceRolls = 1;
+            int totalBoardNumber = 100, diceNumber, currentBoardPosition = 0;
 
 
             Random random = new Random();
@@ -40,21 +40,14 @@ namespace SnakeLadderGame
                     Console.WriteLine($"\nYou reached at bottom of Ladder , So You moved {diceNumber} steps ahead");
                     currentBoardPosition+=diceNumber;
                 }
-                if (currentBoardPosition>100)
-                {
-                    Console.WriteLine("You are out of range");
-                    currentBoardPosition-=diceNumber;
-                }
+               
                 if (currentBoardPosition<0)
                 {
                     currentBoardPosition=0;
                 }
-                countDiceRolls+=1;
-
                 Console.WriteLine($"\nYou are now at position : {currentBoardPosition}");
             }
-
-            Console.WriteLine($"Number of times dice rolls : {countDiceRolls}");
+            
             Console.ReadLine();
 
         }
