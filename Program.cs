@@ -8,54 +8,43 @@ namespace SnakeLadderGame
 {
     internal class Program
     {
+        public static int totalBoardNumber = 100;
         static void Main(string[] args)
         {
             Console.WriteLine("Welcome to Snake Ladder Game\n");
             Console.WriteLine("Let's Play\n");
-            Console.WriteLine("Currently you are at 0 Position\n");
-
-            int totalBoardNumber = 100, diceNumber, currentBoardPosition = 0, countDiceRolls = 1;
 
 
-            Random random = new Random();
+            Player player1 = new Player(1);
+            Player player2 = new Player(2);
 
-            while (currentBoardPosition<totalBoardNumber)
+            while(true)
             {
-                int[] snake = { 1, 3, 5, 67, 87, 92, 95, 98 };
-                int[] ladder = { 4, 6, 21, 28, 36, 51, 71, 80 };
-                diceNumber = random.Next(1, 7);
-                Console.WriteLine($"\n\n\nAfter rolling Dice,The number display on the Dice is : {diceNumber}");
-
-                currentBoardPosition+=diceNumber;
-
-                Console.WriteLine($"\nYou are now at position : {currentBoardPosition}");
-
-                if (Array.Exists(snake, x => x == currentBoardPosition))
+                Console.WriteLine("\n\nPlayer 1 turn's....");
+                player1.DiceRolls();
+                player1.Move();
+                if (player1.currentBoardPosition==Program.totalBoardNumber)
                 {
-                    currentBoardPosition-=diceNumber;
-                    Console.WriteLine($"\nYou reached at top of Snake , So You moved {diceNumber} steps behind");
+                    Console.WriteLine("Congratuation ! Player 1 Won" );
+                    break;
                 }
-                if (Array.Exists(ladder, x => x == currentBoardPosition))
+                Console.WriteLine("\n\nPlayer 2 turn's....");
+                player2.DiceRolls();
+                player2.Move();
+                if (player2.currentBoardPosition==Program.totalBoardNumber)
                 {
-                    Console.WriteLine($"\nYou reached at bottom of Ladder , So You moved {diceNumber} steps ahead");
-                    currentBoardPosition+=diceNumber;
+                    Console.WriteLine("\n\nCongratuation ! Player 2 Won");
+                    break;
                 }
-                if (currentBoardPosition>100)
-                {
-                    Console.WriteLine("You are out of range");
-                    currentBoardPosition-=diceNumber;
-                }
-                if (currentBoardPosition<0)
-                {
-                    currentBoardPosition=0;
-                }
-                countDiceRolls+=1;
 
-                Console.WriteLine($"\nYou are now at position : {currentBoardPosition}");
             }
 
-            Console.WriteLine($"Number of times dice rolls : {countDiceRolls}");
+            Console.WriteLine($"\nPlayer 1 rolls dice : {player1.countDiceRolls} times");
+            Console.WriteLine($"\nPlayer 2 rolls dice : {player2.countDiceRolls} times");
+
+
             Console.ReadLine();
+
 
         }
     }
