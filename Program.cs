@@ -54,7 +54,7 @@ namespace SnakeLadderGame
                 Console.WriteLine($"\nYou are now at position : {currentBoardPosition}");
             }
 
-            Console.WriteLine($"Number of times dice rolls : {countDiceRolls}");
+            Console.WriteLine($"Number of times dice rolls to win : {countDiceRolls}");
             Console.ReadLine();
 
         }
