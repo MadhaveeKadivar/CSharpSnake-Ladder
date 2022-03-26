@@ -23,16 +23,15 @@ namespace SnakeLadderGame
                 Console.WriteLine($"\n\n\nAfter rolling Dice,The number display on the Dice is : {diceNumber}");
                 currentBoardPosition+=diceNumber;
                 Console.WriteLine($"\nYou are now at position : {currentBoardPosition}");
-
                 if (Array.Exists(snake, x => x == currentBoardPosition))  // Checking that current psotion is Top of Snake or not
                 {
-                    currentBoardPosition-=diceNumber;
+                    currentBoardPosition-=diceNumber; // It's a snake that's why moves steps behind by dice number
                     Console.WriteLine($"\nYou reached at top of Snake , So You moved {diceNumber} steps behind");
                 }
                 if (Array.Exists(ladder, x => x == currentBoardPosition))  // Checking that current psotion is Bottom of Ladder or not
                 {
                     Console.WriteLine($"\nYou reached at bottom of Ladder , So You moved {diceNumber} steps ahead");
-                    currentBoardPosition+=diceNumber;
+                    currentBoardPosition+=diceNumber;  // It's a ladder that's why moves steps ahead by dice number
                 }               
                 if (currentBoardPosition<0) // If current postion is below 0 then restart wit Position 0
                 {
