@@ -27,13 +27,13 @@ namespace SnakeLadderGame
 
             if(Array.Exists(snake, x => x == currentBoardPosition)) // Checking that current psotion is Top of Snake or not
             {
-                currentBoardPosition-=diceNumber;
+                currentBoardPosition-=diceNumber; // It's a snake that's why moves steps behind by dice number
                 Console.WriteLine($"\nYou reached at top of Snake , So You moved {diceNumber} steps behind\n");
             }
             if(Array.Exists(ladder, x => x == currentBoardPosition))  // Checking that current psotion is Bottom of Ladder or not
             {
                 Console.WriteLine($"You reached at bottom of Ladder , So You moved {diceNumber} steps ahead\n");
-                currentBoardPosition+=diceNumber;
+                currentBoardPosition+=diceNumber; // It's a ladder that's why moves steps ahead by dice number
             }         
             Console.WriteLine($"\nYou are now at position : {currentBoardPosition}");
             Console.ReadLine();
