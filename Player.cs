@@ -58,7 +58,6 @@ namespace SnakeLadderGame
                 currentBoardPosition=0;
                 Console.WriteLine($"\nYou are now at position : {currentBoardPosition}");
             }
-
         }
     }
 }
