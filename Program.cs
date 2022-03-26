@@ -19,16 +19,16 @@ namespace SnakeLadderGame
             while(true)
             {
                 Console.WriteLine("\n\nPlayer 1 turn's....");
-                player1.DiceRolls(); // Calling Method of Player Class
-                player1.Move();    // Calling Method of Player Class
+                player1.DiceRolls(); // Calling dicerolling Method of Player Class for player 1
+                player1.Move();    // Calling condition checking Method of Player Class for player 1
                 if (player1.currentBoardPosition==Program.totalBoardNumber)
                 {
                     Console.WriteLine("Congratuation ! Player 1 Won" );
                     break;
                 }
                 Console.WriteLine("\n\nPlayer 2 turn's....");
-                player2.DiceRolls();
-                player2.Move();
+                player2.DiceRolls(); // Calling dicerolling Method of Player Class for player 2
+                player2.Move();  // Calling condition checking Method of Player Class for player 2
                 if (player2.currentBoardPosition==Program.totalBoardNumber)
                 {
                     Console.WriteLine("\n\nCongratuation ! Player 2 Won");
