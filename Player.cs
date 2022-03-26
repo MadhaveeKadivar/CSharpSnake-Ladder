@@ -10,7 +10,6 @@ namespace SnakeLadderGame
     {
         int[] snake = { 13,30,45,60,75,93,98 }; // Creating Array of All Snake Position in board
         int[] ladder = { 2,6,14,23,36,51,67,86 }; // Creating Array of All Ladder Position in board
-
         int id;
         public int diceNumber, currentBoardPosition, countDiceRolls;
         public Player(int id) // creating constructor
@@ -29,9 +28,7 @@ namespace SnakeLadderGame
         public void Move()
         {
             currentBoardPosition+=diceNumber;
-
             Console.WriteLine($"\nYou are now at position : {currentBoardPosition}");
-
             if (Array.Exists(snake, x => x == currentBoardPosition))  // Checking that current psotion is Top of Snake or not
             {
                 currentBoardPosition-=diceNumber;  // It's a snake that's why moves steps behind by dice number
